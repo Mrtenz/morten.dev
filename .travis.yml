@@ -20,7 +20,8 @@ before_deploy:
 
 deploy:
   provider: pages:git
-  skip-cleanup: true
+  cleanup: false
+  local_dir: public
   edge: true
   on:
     tag: true
