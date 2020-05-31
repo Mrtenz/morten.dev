@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-cname',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-plugin-layout',
       options: {
