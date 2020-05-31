@@ -24,4 +24,4 @@ deploy:
   local_dir: public
   edge: true
   on:
-    tag: true
+    tags: true
