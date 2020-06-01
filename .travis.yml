@@ -17,11 +17,16 @@ script:
 
 before_deploy:
   - yarn run build
+  - pip install --user awscli
 
 deploy:
-  provider: pages:git
+  provider: script
+  script: yarn run deploy
   cleanup: false
-  local_dir: public
   edge: true
   on:
     tags: true
+
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"

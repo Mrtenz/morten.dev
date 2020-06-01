@@ -18,7 +18,8 @@
     "lint:tsc": "tsc --noEmit",
     "lint:tslint": "tslint --project .",
     "lint:prettier": "prettier --check 'src/**/*.{ts,tsx}'",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,json,yml}'"
+    "prettier": "prettier --write '**/*.{ts,tsx,js,json,yml}'",
+    "deploy": "gatsby-plugin-s3 deploy --yes"
   },
   "devDependencies": {
     "@babel/core": "^7.10.1",
@@ -36,11 +37,13 @@
     "babel-jest": "^26.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.22.12",
+    "gatsby-plugin-canonical-urls": "^2.3.2",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-layout": "^1.3.2",
     "gatsby-plugin-mdx": "^1.2.13",
     "gatsby-plugin-react-helmet-async": "^1.0.17-0",
     "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-s3": "^0.3.3",
     "gatsby-plugin-sharp": "^2.6.9",
     "gatsby-plugin-sitemap": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.3.2",

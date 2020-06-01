@@ -63,6 +63,20 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://morten.dev'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-s3',
+      options: {
+        bucketName: 'morten.dev',
+        protocol: 'https',
+        hostname: 'morten.dev'
+      }
+    }
   ],
 };
 
