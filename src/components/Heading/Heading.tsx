@@ -5,7 +5,7 @@ type Size = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 const sizes: { [key in Size]: string } = {
   h1: '4.6rem',
-  h2: '4rem',
+  h2: '3.5rem',
   h3: '2.5rem',
   h4: '2.8rem',
   h5: '2.2rem',
