@@ -5,6 +5,7 @@ const theme: DefaultTheme = {
   secondary: 'white',
   background: '#212121',
   codeBackground: '#313131',
+  inputBackground: 'white',
   text: 'white',
   mutedText: '#c9c9c9',
   border: '#4c4c4c',
