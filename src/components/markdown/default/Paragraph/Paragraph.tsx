@@ -6,6 +6,7 @@ const Paragraph = styled(Text)`
   font-size: 2rem !important;
   font-family: ${({ theme }) => theme.contentFontFamily};
   letter-spacing: 0.4px;
+  word-break: break-word;
 `;
 
 export default Paragraph;
