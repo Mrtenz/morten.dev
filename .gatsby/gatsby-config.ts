@@ -8,13 +8,18 @@ const config: GatsbyConfig = {
   pathPrefix: '/',
   plugins: [
     'gatsby-plugin-typescript',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet-async',
     'gatsby-plugin-cname',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt',
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        fileName: false,
+        pure: true
+      }
+    },
     {
       resolve: 'gatsby-plugin-layout',
       options: {
