@@ -75,6 +75,15 @@ const config: GatsbyConfig = {
       }
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-140696015-2',
+        anonymize: true,
+        respectDNT: true,
+        defer: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-s3',
       options: {
         bucketName: 'morten.dev',
