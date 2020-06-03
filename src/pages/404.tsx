@@ -6,7 +6,7 @@ import Section from '../components/Section';
 
 const NotFound: FunctionComponent = () => (
   <Section>
-    <MetaData />
+    <MetaData title="404" />
 
     <Center>
       <Heading as="h1">Not Found</Heading>

@@ -8,7 +8,7 @@ import Tool from '../../components/Tool';
 
 const InputDataDecoder: FunctionComponent = () => (
   <Section>
-    <MetaData title="Tools" description="A collection of useful tools" />
+    <MetaData title="Tools" description="A collection of useful tools." />
 
     <Container>
       <Heading as="h1">Tools</Heading>

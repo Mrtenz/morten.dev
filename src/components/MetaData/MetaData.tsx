@@ -21,6 +21,10 @@ const MetaData: FunctionComponent<Props> = ({ title, description }) => (
       {
         name: 'description',
         content: description ?? 'Personal website of Maarten Zuidhoorn, full-stack web developer.'
+      },
+      {
+        name: 'author',
+        content: 'Maarten Zuidhoorn'
       }
     ]}
     link={[

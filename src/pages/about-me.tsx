@@ -8,7 +8,7 @@ import Text from '../components/Text';
 
 const AboutMe: FunctionComponent = () => (
   <Section>
-    <MetaData />
+    <MetaData title="About Me" />
 
     <Container>
       <Heading as="h1">About Me</Heading>

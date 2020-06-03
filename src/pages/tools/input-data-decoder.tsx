@@ -8,7 +8,7 @@ import Text from '../../components/Text';
 
 const InputDataDecoder: FunctionComponent = () => (
   <Section>
-    <MetaData />
+    <MetaData title="Input Data Decoder" description="A simple tool to decode input data for Ethereum transactions." />
 
     <Container>
       <Heading as="h1">Input Data Decoder</Heading>
