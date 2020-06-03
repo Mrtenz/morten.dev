@@ -6,8 +6,8 @@ const Line = styled(motion.line).attrs({
   initial: 'closed',
   transition: {
     ease: 'easeOut',
-    duration: 0.2,
-  },
+    duration: 0.2
+  }
 })`
   stroke: ${({ theme }) => theme.secondary};
   stroke-width: 0.5rem;

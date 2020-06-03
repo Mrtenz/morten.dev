@@ -98,13 +98,13 @@ export const decodeInputData = (contractABI: string, inputData: string): Decoded
       return {
         name: input.name,
         type: input.type,
-        value,
+        value
       };
     });
 
     return {
       method: method.name,
-      parameters,
+      parameters
     };
   }
 

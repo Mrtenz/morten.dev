@@ -2,8 +2,8 @@ import { GatsbyBrowser } from 'gatsby';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import 'typeface-public-sans';
-import 'typeface-source-serif-pro';
 import 'typeface-source-code-pro';
+import 'typeface-source-serif-pro';
 import theme from '../src/theme';
 
 /**

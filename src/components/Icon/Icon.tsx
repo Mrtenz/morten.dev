@@ -6,12 +6,12 @@ import github from '../../assets/images/github.svg';
 export const icons = {
   email: {
     name: 'Email',
-    icon: email,
+    icon: email
   },
   github: {
     name: 'GitHub',
-    icon: github,
-  },
+    icon: github
+  }
 };
 
 interface Props {

@@ -19,14 +19,14 @@ export const sendJsonRpc = async <T extends object>(method: string, params: stri
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       jsonrpc: '2.0',
       id: 1,
       method,
-      params,
-    }),
+      params
+    })
   });
 
   if (!response.ok) {

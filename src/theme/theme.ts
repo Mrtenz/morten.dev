@@ -20,8 +20,8 @@ const theme: DefaultTheme = {
 
   logo: {
     fill: 'white',
-    shadow: '#dedede',
-  },
+    shadow: '#dedede'
+  }
 };
 
 export default theme;
