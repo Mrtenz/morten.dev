@@ -1,7 +1,8 @@
 /**
- * Required to import SVGs in TypeScript files.
+ * Required to import SVGs and PNGs in TypeScript files.
  */
 declare module '*.svg';
+declare module '*.png';
 
 /**
  * Declarations for keccak module.

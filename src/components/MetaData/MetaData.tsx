@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet-async';
+import favicon from '../../assets/images/favicon.png';
 
 interface Props {
   title?: string;
@@ -20,6 +21,13 @@ const MetaData: FunctionComponent<Props> = ({ title, description }) => (
       {
         name: 'description',
         content: description ?? 'Personal website of Maarten Zuidhoorn, full-stack web developer.'
+      }
+    ]}
+    link={[
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: favicon
       }
     ]}
   />
