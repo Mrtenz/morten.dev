@@ -1,13 +1,16 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { NAVIGATION_ITEMS } from '../../../config';
 import Center from '../../Center';
 import Link from '../../Link/Link';
 import Socials from '../../Socials';
 import Text from '../../Text';
 
-const MenuWrapper = styled(motion.nav)`
+interface Props {
+  isOpen: boolean;
+}
+
+const MenuWrapper = styled.nav<Props>`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -15,6 +18,18 @@ const MenuWrapper = styled(motion.nav)`
   right: 0;
   background: ${({ theme }) => theme.background};
   z-index: 10;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  pointer-events: none;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+    `};
 `;
 
 const MenuList = styled.ul`
@@ -30,31 +45,19 @@ const MenuListItem = styled(Text).attrs({ as: 'li' })`
   margin: 5rem 0;
 `;
 
-interface Props {
-  isOpen: boolean;
-}
-
 const Menu: FunctionComponent<Props> = ({ isOpen }) => (
-  <AnimatePresence>
-    {isOpen && (
-      <MenuWrapper
-        transition={{ duration: 0.3 }}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}>
-        <Center>
-          <MenuList>
-            {NAVIGATION_ITEMS.map((item) => (
-              <MenuListItem key={item.to}>
-                <Link to={item.to}>{item.title}</Link>
-              </MenuListItem>
-            ))}
-          </MenuList>
-        </Center>
-        <Socials />
-      </MenuWrapper>
-    )}
-  </AnimatePresence>
+  <MenuWrapper isOpen={isOpen}>
+    <Center>
+      <MenuList>
+        {NAVIGATION_ITEMS.map((item) => (
+          <MenuListItem key={item.to}>
+            <Link to={item.to}>{item.title}</Link>
+          </MenuListItem>
+        ))}
+      </MenuList>
+    </Center>
+    <Socials />
+  </MenuWrapper>
 );
 
 export default Menu;
