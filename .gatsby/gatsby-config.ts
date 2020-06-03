@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: 'https://morten.dev/',
+    siteUrl: 'https://morten.dev/'
   },
   pathPrefix: '/',
   plugins: [
@@ -23,15 +23,15 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-layout',
       options: {
-        component: require.resolve('../src/components/Layout/Layout.tsx'),
-      },
+        component: require.resolve('../src/components/Layout/Layout.tsx')
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: resolve(__dirname, '../content'),
-        name: 'content',
-      },
+        name: 'content'
+      }
     },
     {
       resolve: 'gatsby-plugin-mdx',
@@ -45,16 +45,16 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 680,
               linkImagesToOriginal: false,
-              disableBgImage: true,
-            },
+              disableBgImage: true
+            }
           },
           {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
-              rel: 'noopener noreferrer',
-            },
-          },
+              rel: 'noopener noreferrer'
+            }
+          }
         ],
         plugins: [
           {
@@ -62,11 +62,11 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 680,
               linkImagesToOriginal: false,
-              disableBgImage: true,
-            },
-          },
-        ],
-      },
+              disableBgImage: true
+            }
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-canonical-urls',
@@ -82,7 +82,7 @@ const config: GatsbyConfig = {
         hostname: 'morten.dev'
       }
     }
-  ],
+  ]
 };
 
 export default config;

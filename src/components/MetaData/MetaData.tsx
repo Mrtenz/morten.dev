@@ -14,13 +14,13 @@ const MetaData: FunctionComponent<Props> = ({ title, description }) => (
     defaultTitle="Morten"
     title={title}
     htmlAttributes={{
-      lang: 'en',
+      lang: 'en'
     }}
     meta={[
       {
         name: 'description',
-        content: description ?? 'Personal website of Maarten Zuidhoorn, full-stack web developer.',
-      },
+        content: description ?? 'Personal website of Maarten Zuidhoorn, full-stack web developer.'
+      }
     ]}
   />
 );

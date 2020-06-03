@@ -1,10 +1,10 @@
 export const NAVIGATION_ITEMS = [
   {
     title: 'Blog',
-    to: '/posts',
+    to: '/posts'
   },
   {
     title: 'About',
-    to: '/about-me',
-  },
+    to: '/about-me'
+  }
 ];

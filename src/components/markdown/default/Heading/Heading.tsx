@@ -9,7 +9,7 @@ const sizes: { [key in Size]: string } = {
   h3: '2.2rem',
   h4: '1.7rem',
   h5: '1.5rem',
-  h6: '1.3rem',
+  h6: '1.3rem'
 };
 
 interface Props {

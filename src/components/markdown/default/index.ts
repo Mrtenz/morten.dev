@@ -43,5 +43,5 @@ export default {
   thematicBreak: ThematicBreak,
   hr: ThematicBreak,
   a: Link,
-  img: Image,
+  img: Image
 };

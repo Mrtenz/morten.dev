@@ -16,32 +16,32 @@ const HamburgerSvg = styled(motion.svg)`
 const TOP_VARIANT = {
   closed: {
     rotate: 0,
-    translateY: 0,
+    translateY: 0
   },
   open: {
     rotate: 45,
-    translateY: 2,
-  },
+    translateY: 2
+  }
 };
 
 const MIDDLE_VARIANT = {
   closed: {
-    opacity: 1,
+    opacity: 1
   },
   open: {
-    opacity: 0,
-  },
+    opacity: 0
+  }
 };
 
 const BOTTOM_VARIANT = {
   closed: {
     rotate: 0,
-    translateY: 0,
+    translateY: 0
   },
   open: {
     rotate: -45,
-    translateY: -2,
-  },
+    translateY: -2
+  }
 };
 
 const Hamburger: FunctionComponent<Props> = ({ isOpen, onClick }) => {

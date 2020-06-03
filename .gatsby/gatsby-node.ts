@@ -45,8 +45,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions:
       path: `/posts/${node.frontmatter.slug}`,
       component: BLOG_POST_TEMPLATE,
       context: {
-        slug: node.frontmatter.slug,
-      },
+        slug: node.frontmatter.slug
+      }
     })
   );
 };
