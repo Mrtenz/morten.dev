@@ -1,4 +1,5 @@
 import { Link as GLink } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import React, { FunctionComponent } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -17,7 +18,7 @@ const InternalLink = styled(GLink)`
   ${linkStyles};
 `;
 
-const ExternalLink = styled.a`
+const ExternalLink = styled(OutboundLink)`
   ${linkStyles};
 `;
 
