@@ -69,7 +69,6 @@
   "dependencies": {
     "@ethersproject/abi": "^5.0.0-beta.155",
     "date-fns": "^2.14.0",
-    "framer-motion": "^1.11.0",
     "keccak": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
