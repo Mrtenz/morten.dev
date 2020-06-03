@@ -27,7 +27,7 @@ interface Props {
 
 const Posts: FunctionComponent<Props> = ({ data }) => (
   <Section>
-    <MetaData />
+    <MetaData title="Blog" />
 
     <Container>
       <Heading as="h1">Blog</Heading>
