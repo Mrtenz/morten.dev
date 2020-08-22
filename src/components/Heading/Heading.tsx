@@ -23,3 +23,5 @@ const Heading = styled(Text)<Props>`
 `;
 
 export default Heading;
+
+export const Foo = styled.span;

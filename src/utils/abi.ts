@@ -5,8 +5,13 @@ import createKeccakHash from 'keccak';
 export interface ABIMethod {
   name: string;
   type: 'constructor' | 'event' | 'function';
-  constant: boolean;
+  stateMutability: string;
+  constant?: boolean;
   inputs: {
+    name: string;
+    type: string;
+  }[];
+  outputs: {
     name: string;
     type: string;
   }[];
@@ -56,6 +61,20 @@ export const encodeInputData = (method: ABIMethod, data: { [key: string]: string
   const types = method.inputs.map((input) => input.type);
 
   return `0x${getMethodSignature(method)}${defaultAbiCoder.encode(types, Object.values(data)).slice(2)}`;
+};
+
+/**
+ * Decode output data with the ABI specified.
+ *
+ * @template T
+ * @param {ABIMethod} method
+ * @param {string} data
+ * @return {T}
+ */
+export const decodeData = <T>(method: ABIMethod, data: string): T => {
+  const types = method.outputs.map((output) => output.type);
+
+  return (defaultAbiCoder.decode(types, data) as unknown) as T;
 };
 
 interface DecodedData {

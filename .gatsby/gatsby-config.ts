@@ -40,6 +40,7 @@ const config: GatsbyConfig = {
         remarkPlugins: [require('remark-unwrap-images')],
         rehypePlugins: [require('rehype-slug')],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -56,16 +57,7 @@ const config: GatsbyConfig = {
             }
           }
         ],
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 680,
-              linkImagesToOriginal: false,
-              disableBgImage: true
-            }
-          }
-        ]
+        plugins: ['gatsby-remark-images']
       }
     },
     {
