@@ -14,7 +14,10 @@ interface ResponseData<T> {
  * @param {string[]} params
  * @return {Promise<ResponseData<T>>}
  */
-export const sendJsonRpc = async <T extends object>(method: string, params: string[]): Promise<ResponseData<T>> => {
+export const sendJsonRpc = async <T extends string | object>(
+  method: string,
+  params: (string | object)[]
+): Promise<ResponseData<T>> => {
   const response = await fetch(JSONRPC_PROVIDER, {
     method: 'POST',
     headers: {
@@ -49,5 +52,19 @@ export interface TransactionResponse {
  */
 export const fetchTransactionData = async (transactionHash: string): Promise<TransactionResponse> => {
   const { result } = await sendJsonRpc<TransactionResponse>('eth_getTransactionByHash', [transactionHash]);
+  return result;
+};
+
+export type CallResponse = string;
+
+export const call = async (to: string, data: string): Promise<CallResponse> => {
+  const { result } = await sendJsonRpc<CallResponse>('eth_call', [
+    {
+      to,
+      data
+    },
+    'latest'
+  ]);
+
   return result;
 };

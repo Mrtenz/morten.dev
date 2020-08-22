@@ -48,10 +48,11 @@
     "gatsby-plugin-sharp": "^2.6.9",
     "gatsby-plugin-sitemap": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.3.2",
-    "gatsby-plugin-ts-config": "^0.2.2",
+    "gatsby-plugin-ts-config": "0.2.3-pre.1",
     "gatsby-plugin-typescript": "^2.4.3",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.3.8",
+    "gatsby-remark-smartypants": "^2.3.3",
     "gatsby-source-filesystem": "^2.3.8",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
@@ -67,7 +68,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "@ethersproject/abi": "^5.0.0-beta.155",
+    "@ethersproject/abi": "^5.0.2",
     "date-fns": "^2.14.0",
     "keccak": "^3.0.0",
     "react": "^16.13.1",
