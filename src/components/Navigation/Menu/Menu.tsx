@@ -39,7 +39,7 @@ const MenuList = styled.ul`
 `;
 
 const MenuListItem = styled(Text).attrs({ as: 'li' })`
-  color: white;
+  color: ${({ theme }) => theme.secondary};
   font-size: 4rem;
   text-align: center;
   margin: 5rem 0;

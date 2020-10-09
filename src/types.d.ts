@@ -1,14 +1,19 @@
 /**
  * Required to import SVGs and PNGs in TypeScript files.
  */
-declare module '*.svg';
 declare module '*.png';
+declare module '*.svg' {
+  import { Hash } from 'crypto';
+  import { HTMLAttributes } from 'react';
+
+  const value: React.ComponentType<HTMLAttributes<SVGElement>>;
+  export default value;
+}
 
 /**
  * Declarations for keccak module.
  */
 declare module 'keccak' {
-  import { Hash } from 'crypto';
 
   type Algorithm =
     | 'keccak224'
