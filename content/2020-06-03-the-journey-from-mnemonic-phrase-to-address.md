@@ -23,7 +23,7 @@ Note: This article is for educational purposes only. Please do not use it as ref
 
 Mnemonic phrases are defined by the [BIP-39 specification](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki). This is the most common type of mnemonic phrase used in the ecosystem, and does not rely on some kind of knowledge from yourself to be generated (like a ["brain wallet"](https://github.com/ethereum/wiki/wiki/Brain-Wallet)). BIP-39 will be explained in more detail further on in this article.
 
-The creation of mnemonic phrases starts by generating [initial entropy](https://en.wikipedia.org/wiki/Entropy_(computing)). There are a few different definitions of entropy, but in this case, it’s referring to _randomness_ collected by a computer. Essentially, it’s a random sequence of bits (zeroes and ones), generated with the purpose of being used for cryptography. That means that entropy must be sufficiently random to be secure. In general, more entropy means that something is more secure, [but 128 bits of entropy is considered enough](https://security.stackexchange.com/a/102163).
+The creation of mnemonic phrases starts by generating [initial entropy](<https://en.wikipedia.org/wiki/Entropy_(computing)>). There are a few different definitions of entropy, but in this case, it’s referring to _randomness_ collected by a computer. Essentially, it’s a random sequence of bits (zeroes and ones), generated with the purpose of being used for cryptography. That means that entropy must be sufficiently random to be secure. In general, more entropy means that something is more secure, [but 128 bits of entropy is considered enough](https://security.stackexchange.com/a/102163).
 
 For the creation of a mnemonic phrase, we need at least 128 bits of entropy, and at most 256 bits. Depending on the length of the initial entropy, the mnemonic phrase will be 12 to 24 words long.
 
@@ -164,14 +164,14 @@ CKD<sub>priv</sub>(CKD<sub>priv</sub>(m, 0), 0')
 </code>
 </pre>
 
- to derive `m/0/0'`. Derivation for each child key looks a bit like this:
+to derive `m/0/0'`. Derivation for each child key looks a bit like this:
 
 ![The process of deriving a child key.](assets/the-journey-from-mnemonic-phrase-to-address/8.png)
 
 First, we have to determine whether a child key is hardened or not.
 
-* If the child key is hardened, take the 32-byte-long **private key** and append a zero byte (`0x00`) to the start, to make it 33 bytes long.
-* If the child key is not hardened, we take the 33-byte-long **public key**.
+- If the child key is hardened, take the 32-byte-long **private key** and append a zero byte (`0x00`) to the start, to make it 33 bytes long.
+- If the child key is not hardened, we take the 33-byte-long **public key**.
 
 We'll call this the data. Next, append the index, (`0` or `0'` in this case), to the data. Then we have to hash the data using HMAC-SHA512. HMAC is similar to PBKDF2 in that it produces a deterministic hash. HMAC is unique in that you need a cryptographic key as well. For that, we use the chain code part of the extended key.
 
@@ -219,13 +219,13 @@ Let's have a look at the extended private key, to see what it’s made of. As he
 
 The extended key is 82 bytes long, and consists of:
 
-* **The version** (4 bytes). This is either `0x0488b21e` (xpub) or `0x0488ade4` (xpriv). Because of these version bytes, the Base58 encoded key will always start with "xpub" or "xpriv".
-* **The depth** (1 byte). Since this is the master key, the depth is 0 (`0x00`). A child key would have depth 1 (`0x01`), the child key of that child key depth 2 (`0x02`), and so on.
-* **The parent fingerprint** (4 bytes). This is an identifier for the extended key. Since this is the master key (which doesn't have a parent key), the fingerprint is always `0x00000000`. For child keys, this is calculated by taking the [RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD) hash of the SHA256 hash of the public key.
-* **The index** (4 bytes). Since this is the master key, the child index is 0 (`0x00000000`). For child keys, this is simply the number that was used to derive the key. For example, in the case of m/1, the index of the first child is 1 (`0x00000001`).
-* **The chain code** (32 bytes).
-* **The public or private key** (33 bytes). Because the private key itself is only 32 bytes long, we append a byte (`0x00`) to it. Public keys are already 33 bytes long.
-* **The checksum** (4 bytes). Extended keys contain a 4-byte checksum to make sure that the extended key is valid. This is simply the SHA256 hash of the SHA256 hash of the other bytes.
+- **The version** (4 bytes). This is either `0x0488b21e` (xpub) or `0x0488ade4` (xpriv). Because of these version bytes, the Base58 encoded key will always start with "xpub" or "xpriv".
+- **The depth** (1 byte). Since this is the master key, the depth is 0 (`0x00`). A child key would have depth 1 (`0x01`), the child key of that child key depth 2 (`0x02`), and so on.
+- **The parent fingerprint** (4 bytes). This is an identifier for the extended key. Since this is the master key (which doesn't have a parent key), the fingerprint is always `0x00000000`. For child keys, this is calculated by taking the [RIPEMD160](https://en.wikipedia.org/wiki/RIPEMD) hash of the SHA256 hash of the public key.
+- **The index** (4 bytes). Since this is the master key, the child index is 0 (`0x00000000`). For child keys, this is simply the number that was used to derive the key. For example, in the case of m/1, the index of the first child is 1 (`0x00000001`).
+- **The chain code** (32 bytes).
+- **The public or private key** (33 bytes). Because the private key itself is only 32 bytes long, we append a byte (`0x00`) to it. Public keys are already 33 bytes long.
+- **The checksum** (4 bytes). Extended keys contain a 4-byte checksum to make sure that the extended key is valid. This is simply the SHA256 hash of the SHA256 hash of the other bytes.
 
 Let's look at another example. If we derive `m/0/0'` from the master key, we get:
 
@@ -267,8 +267,8 @@ m / purpose' / coin_type' / account' / change / address_index
 
 This is also known as a derivation path, and is what we use to choose a specific address derived from a seed. Some examples are:
 
-* The first address (_address_index_ = 0) of the "default" Ethereum derivation path: `m/44'/60'/0'/0/0`
-* The third address (_account_ = 2) of the derivation path used by Ledger Live: `m/44'/60'/2'/0/0`
+- The first address (_address_index_ = 0) of the "default" Ethereum derivation path: `m/44'/60'/0'/0/0`
+- The third address (_account_ = 2) of the derivation path used by Ledger Live: `m/44'/60'/2'/0/0`
 
 ### Purpose
 
@@ -300,8 +300,8 @@ So far, we have mostly talked about derivation in the context of mnemonic phrase
 
 Hardware wallets like Ledger and Trezor devices solve this with a few possibilities:
 
-* We can request a single address from the device by specifying the full derivation path.
-* We can generate an extended _public_ key by requesting the public key and chain code for a derivation path.
+- We can request a single address from the device by specifying the full derivation path.
+- We can generate an extended _public_ key by requesting the public key and chain code for a derivation path.
 
 The first option is very straightforward, we can request a single address by specifying which derivation path to get the address for. If we want to get multiple addresses from the device though, this option has a downside: Requesting an address from the device takes some time, so it takes longer to fetch multiple addresses. In tools like [FindETH](https://github.com/FindETH/web) (an Ethereum address search tool that I made a while ago) this causes a problem, as it takes significantly longer to search for addresses.
 
@@ -327,8 +327,8 @@ Fortunately, software like MyCrypto makes this very easy to do nowadays, but thi
 
 ## References
 
-* [BIP-32: Hierarchical Deterministic Wallets. (P. Wuille, 2012)](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
-* [BIP-39: Mnemonic code for generating deterministic keys. (M. Palatinus, P. Rusnak, A. Voisine, S. Bowe, 2013)](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
-* [BIP-44: Multi-Account Hierarchy for Deterministic Wallets. (M. Palatinus, P. Rusnak, 2014)](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)
-* [An Introduction to Bitcoin, Elliptic Curves and the Mathematics of ECDSA. (N. Mistry, 2015)](https://github.com/bellaj/Blockchain/blob/6bffb47afae6a2a70903a26d215484cf8ff03859/ecdsa_bitcoin.pdf)
-* [FindETH HD wallet key derivation library.](https://github.com/FindETH/hdnode)
+- [BIP-32: Hierarchical Deterministic Wallets. (P. Wuille, 2012)](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
+- [BIP-39: Mnemonic code for generating deterministic keys. (M. Palatinus, P. Rusnak, A. Voisine, S. Bowe, 2013)](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
+- [BIP-44: Multi-Account Hierarchy for Deterministic Wallets. (M. Palatinus, P. Rusnak, 2014)](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)
+- [An Introduction to Bitcoin, Elliptic Curves and the Mathematics of ECDSA. (N. Mistry, 2015)](https://github.com/bellaj/Blockchain/blob/6bffb47afae6a2a70903a26d215484cf8ff03859/ecdsa_bitcoin.pdf)
+- [FindETH HD wallet key derivation library.](https://github.com/FindETH/hdnode)

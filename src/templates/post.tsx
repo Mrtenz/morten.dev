@@ -4,9 +4,9 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React, { FunctionComponent } from 'react';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
-import components from '../components/markdown';
 import MetaData from '../components/MetaData';
 import TableOfContents from '../components/TableOfContents';
+import components from '../components/markdown';
 
 interface Props {
   data: {
@@ -17,10 +17,10 @@ interface Props {
       };
       body: string;
       tableOfContents: {
-        items: {
+        items: Array<{
           url: string;
           title: string;
-        }[];
+        }>;
       };
     };
   };

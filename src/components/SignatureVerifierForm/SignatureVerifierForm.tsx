@@ -24,6 +24,7 @@ const SignatureVerifierForm: FunctionComponent = () => {
   const handleChangeSignature = (value: string, name: 'v' | 'r' | 's') => {
     setSignature((state) => {
       if (value === '') {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { [name]: _, ...rest } = state as ECDSASignature;
         return {
           ...rest
@@ -57,7 +58,7 @@ const SignatureVerifierForm: FunctionComponent = () => {
     if (message && signature?.v && signature.r && signature.s) {
       // TODO: Handle errors
       verify(message, signature as ECDSASignature)
-        // tslint:disable-next-line
+        // eslint-disable-next-line
         .catch(console.error);
     }
   };

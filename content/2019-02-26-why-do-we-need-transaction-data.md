@@ -118,5 +118,5 @@ Simply hover over one of the blocks under the “Gas Limit” section to see the
 
 ## References
 
-* [Ethereum: A secure decentralised generalised transaction ledger. (G. Wood, 2014)](https://ethereum.github.io/yellowpaper/paper.pdfhttps://ethereum.github.io/yellowpaper/paper.pdf)
-* [The Solidity documentation.](https://solidity.readthedocs.io/)
+- [Ethereum: A secure decentralised generalised transaction ledger. (G. Wood, 2014)](https://ethereum.github.io/yellowpaper/paper.pdfhttps://ethereum.github.io/yellowpaper/paper.pdf)
+- [The Solidity documentation.](https://solidity.readthedocs.io/)

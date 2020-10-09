@@ -6,7 +6,7 @@ import Link from '../Link';
 import Text from '../Text';
 
 interface Props {
-  posts: {
+  posts: Array<{
     node: {
       frontmatter: {
         title: string;
@@ -17,7 +17,7 @@ interface Props {
       excerpt: string;
       timeToRead: number;
     };
-  }[];
+  }>;
 }
 
 const PostsListWrapper = styled.ul`

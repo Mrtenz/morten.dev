@@ -4,10 +4,10 @@ import ListItem from '../markdown/default/List/ListItem';
 import UnorderedList from '../markdown/default/List/UnorderedList';
 
 interface Props {
-  items: {
+  items: Array<{
     url: string;
     title: string;
-  }[];
+  }>;
 }
 
 const TableOfContents: FunctionComponent<Props> = ({ items }) => (

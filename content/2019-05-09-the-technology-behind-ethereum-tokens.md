@@ -21,8 +21,8 @@ Tokens work similarly to Ether — you can store them in your wallet, send them 
 
 We can distinguish between two types of tokens:
 
-* **Security tokens**: tokens that represent a level of investment in a project. When you invest in a security token, you expect to make a profit out of it.
-* **Utility tokens**: tokens that are used to interact with a product or service.
+- **Security tokens**: tokens that represent a level of investment in a project. When you invest in a security token, you expect to make a profit out of it.
+- **Utility tokens**: tokens that are used to interact with a product or service.
 
 A good example of a utility token is [Golem](https://golem.network/). Golem lets you share unused computing power in exchange for Golem Network Tokens (GNT).
 
@@ -71,8 +71,8 @@ When `msg.sender` (the address that calls the function) is equal to the owner of
 
 Tokens can also be destroyed. This process is called _burning_ and can be done in multiple ways as well, including:
 
-* Reducing the actual number of tokens in circulation (thus reducing the `totalSupply` of the token). Some tokens have a `burn` function built in to do this.
-* Sending the tokens to an address like [0x0000000000000000000000000000000000000000](https://etherscan.io/address/0x0000000000000000000000000000000000000000). While it’s theoretically possible that someone generates the private key for this address, the chance is extremely small (1 in 16<sup>40</sup>). Many tokens prevent sending from and/or to this address, however.
+- Reducing the actual number of tokens in circulation (thus reducing the `totalSupply` of the token). Some tokens have a `burn` function built in to do this.
+- Sending the tokens to an address like [0x0000000000000000000000000000000000000000](https://etherscan.io/address/0x0000000000000000000000000000000000000000). While it’s theoretically possible that someone generates the private key for this address, the chance is extremely small (1 in 16<sup>40</sup>). Many tokens prevent sending from and/or to this address, however.
 
 If you are a developer looking to build your own token on the Ethereum blockchain, I recommend you check out [OpenZeppelin’s ERC-20 or ERC-721 implementations](https://github.com/OpenZeppelin/openzeppelin-solidity), or [0xjac’s ERC-777 implementation](https://github.com/0xjac/ERC777) as reference. Even though I try to explain everything about these standards in detail as best as I can, some things in this article may be incorrect, incomplete, or outdated. This article exists purely for educational reasons. **You shouldn’t use anything in this article as a reference for your own token implementation.**
 
@@ -120,8 +120,8 @@ function decimals() public view returns (uint8)
 
 As explained earlier in this article, ERC-20 transfers are relatively simple. The transfer function is called and the tokens are moved to the receiving address. ERC-20 has two ways to transfer tokens:
 
-* You can use the `transfer` function to send tokens from your address to another address.
-* You can use the `transferFrom` function to send tokens from a different address to another address when you’re authorised to do so. We’ll get back to that in a bit.
+- You can use the `transfer` function to send tokens from your address to another address.
+- You can use the `transferFrom` function to send tokens from a different address to another address when you’re authorised to do so. We’ll get back to that in a bit.
 
 ### Decimals
 
@@ -198,9 +198,9 @@ Lets continue to use [CryptoKitties](https://www.cryptokitties.co/) as an exampl
 
 Gaming and collectibles are just a few applications of ERC-721 tokens, but they can be used for many things, including ownership of physical objects that are “unique.” Here are some examples:
 
-* Licensing
-* (Digital) art
-* Real estate
+- Licensing
+- (Digital) art
+- Real estate
 
 The ERC-721 standard defines multiple interfaces, but below you’ll find the main ERC-721 interface.
 
@@ -272,7 +272,7 @@ The token with ID 1 is transferred to the address 0xabcd…1234, so this address
 
 When an ERC-20 token is being minted, we can simply increase the total supply and add the tokens to an address. For ERC-721 tokens, however, we need to keep track of the token metadata somehow. In the case of CryptoKitties, that includes things like the breed, colour, etc.
 
-Storing data on the blockchain is expensive. If you read [my previous article on transaction input data](/posts/why-do-we-need-transaction-data), you may know that every non-zero byte of data consumes 68 units of gas, _just to send it to the blockchain without storing it_. That means sending a file of 100 kB (e.g. a small image) to the blockchain, costs about 6,800,000 units of gas. Assuming a gas price of 5 Gwei, that would cost you about 0.034 Ether, or about $5.78 at the time of writing, **for one image**, and again, that’s without even storing the image on the blockchain. That’s why developers often look at alternatives for storing data in a secure, decentralised way instead.
+Storing data on the blockchain is expensive. If you read [my previous article on transaction input data](/posts/why-do-we-need-transaction-data), you may know that every non-zero byte of data consumes 68 units of gas, _just to send it to the blockchain without storing it_. That means sending a file of 100 kB (e.g. a small image) to the blockchain, costs about 6,800,000 units of gas. Assuming a gas price of 5 Gwei, that would cost you about 0.034 Ether, or about \$5.78 at the time of writing, **for one image**, and again, that’s without even storing the image on the blockchain. That’s why developers often look at alternatives for storing data in a secure, decentralised way instead.
 
 ERC-721 does define a method for storing token metadata, but this method is not a requirement. Developers are free to implement their own mechanisms. It uses [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) (Uniform Resource Identifiers) which reference a JSON file, which conforms to the “ERC-721 Metadata JSON Schema”.
 
@@ -365,8 +365,8 @@ Operators are ERC-777’s replacement for ERC-20’s allowance. Instead of allow
 
 ERC-777 defines two types of operators:
 
-* Default operators
-* Address-specific operators
+- Default operators
+- Address-specific operators
 
 Default operators are authorised to send transactions, burn tokens, etc. for all addresses, while address-specific operators have to be authorised on a per-address level, as the name suggests. This is done by calling the `authorizeOperator` function with the operator’s address.
 
@@ -458,10 +458,10 @@ ERC-721 is in a similar situation as ERC-20. While it’s growing in popularity,
 
 ## References
 
-* [The Ethereum Virtual Machine — How does it work?](https://medium.com/mycrypto/the-ethereum-virtual-machine-how-does-it-work-9abac2b7c9e)
-* [Why do we need transaction data?](/posts/why-do-we-need-transaction-data)
-* [ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20)
-* [ERC-223 Token Standard](https://github.com/ethereum/EIPs/issues/223)
-* [ERC-721 Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
-* [ERC-777 Token Standard](https://eips.ethereum.org/EIPS/eip-777)
-* [ERC-1820 Pseudo-introspection Registry Contract](https://eips.ethereum.org/EIPS/eip-1820)
+- [The Ethereum Virtual Machine — How does it work?](https://medium.com/mycrypto/the-ethereum-virtual-machine-how-does-it-work-9abac2b7c9e)
+- [Why do we need transaction data?](/posts/why-do-we-need-transaction-data)
+- [ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20)
+- [ERC-223 Token Standard](https://github.com/ethereum/EIPs/issues/223)
+- [ERC-721 Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
+- [ERC-777 Token Standard](https://eips.ethereum.org/EIPS/eip-777)
+- [ERC-1820 Pseudo-introspection Registry Contract](https://eips.ethereum.org/EIPS/eip-1820)

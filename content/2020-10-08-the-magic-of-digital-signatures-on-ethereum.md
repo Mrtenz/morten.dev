@@ -15,9 +15,9 @@ _Disclaimer: cryptography is hard. Please don't use anything in this article as 
 
 When we talk about signatures in cryptography, we talk about some kind of proof of ownership, validity, integrity, etc. For example, they can be used for:
 
-* Proving that you have the private key for an address (authentication);
-* Making sure that a message (e.g., email) has not been tampered with;
-* [Verifying that the version of MyCrypto you downloaded is legitimate.](https://support.mycrypto.com/staying-safe/verifying-authenticity-of-desktop-app)
+- Proving that you have the private key for an address (authentication);
+- Making sure that a message (e.g., email) has not been tampered with;
+- [Verifying that the version of MyCrypto you downloaded is legitimate.](https://support.mycrypto.com/staying-safe/verifying-authenticity-of-desktop-app)
 
 This is based on mathematical formulas. We take an input message, a private key and a (usually) random secret, and we get a number as output, which is the signature. Using another mathematical formula, this process can be reversed in such a way that the private key and random secret are unknown but can be verified. There are many algorithms for this, such as RSA and AES, but Ethereum (and Bitcoin) uses the Elliptic Curve Digital Signature Algorithm, or ECDSA. Note that ECDSA is only a signature algorithm. Unlike RSA and AES, it cannot be used for encryption.
 
@@ -64,10 +64,10 @@ In order to verify a message, we need the original message, the address of the p
 
 The (again "simplified") process for recovering the public key looks like this:
 
-* Calculate the hash (`e`) for the message to recover.
-* Calculate point <inlineCode>R = (x<sub>1</sub>, y<sub>1</sub>)</inlineCode> on the elliptic curve, where <inlineCode>x<sub>1</sub></inlineCode> is `r` for `v = 27`, or `r + n` for `v = 28`.
-* Calculate <inlineCode>u<sub>1</sub> = -zr<sup>-1</sup> mod n</inlineCode> and <inlineCode>u<sub>2</sub> = sr<sup>-1</sup> mod n</inlineCode>.
-* Calculate point <inlineCode>Q<sub>a</sub> = (x<sub>a</sub>, y<sub>a</sub>) = u<sub>1</sub> × G + u<sub>2</sub> × R</inlineCode>.
+- Calculate the hash (`e`) for the message to recover.
+- Calculate point <inlineCode>R = (x<sub>1</sub>, y<sub>1</sub>)</inlineCode> on the elliptic curve, where <inlineCode>x<sub>1</sub></inlineCode> is `r` for `v = 27`, or `r + n` for `v = 28`.
+- Calculate <inlineCode>u<sub>1</sub> = -zr<sup>-1</sup> mod n</inlineCode> and <inlineCode>u<sub>2</sub> = sr<sup>-1</sup> mod n</inlineCode>.
+- Calculate point <inlineCode>Q<sub>a</sub> = (x<sub>a</sub>, y<sub>a</sub>) = u<sub>1</sub> × G + u<sub>2</sub> × R</inlineCode>.
 
 Now <inlineCode>Q<sub>a</sub></inlineCode> is the point of the _public key_ for the _private key_ that the address was signed with. We can derive an address from this public key and check if that matches with the provided address. If it does the signature is valid.
 
@@ -95,10 +95,10 @@ If we enter this on [MyCrypto's broadcast signed transaction page](https://mycry
 
 The first group of bytes of the signed transaction contains the RLP encoded transaction parameters, and the last group of bytes contains the signature `{r, s, v}`. We can encode a signed transaction like this:
 
-* Encode the transaction parameters: `RLP(nonce, gasPrice, gasLimit, to, value, data, chainId, 0, 0)`.
-* Get the Keccak256 hash of the RLP-encoded, unsigned transaction.
-* Sign the hash with a private key using the ECDSA algorithm, according to the steps described above.
-* Encode the signed transaction: `RLP(nonce, gasPrice, gasLimit, to, value, data, v, r, s)`.
+- Encode the transaction parameters: `RLP(nonce, gasPrice, gasLimit, to, value, data, chainId, 0, 0)`.
+- Get the Keccak256 hash of the RLP-encoded, unsigned transaction.
+- Sign the hash with a private key using the ECDSA algorithm, according to the steps described above.
+- Encode the signed transaction: `RLP(nonce, gasPrice, gasLimit, to, value, data, v, r, s)`.
 
 By decoding the RLP-encoded transaction data, we can get the raw transaction parameters and signature again.
 
@@ -134,9 +134,9 @@ The full message (including the prefix) is then hashed again, and that data is s
 
 The version-specific data depends (as the name suggests) on the version we use. Currently, EIP-191 has three versions:
 
-* `0x00`: Data with “intended validator.” In the case of a contract, this can be the address of the contract.
-* `0x01`: Structured data, as defined in EIP-712. This will be explained further on.
-* `0x45`: Regular signed messages, like the current behaviour of `personal_sign`.
+- `0x00`: Data with “intended validator.” In the case of a contract, this can be the address of the contract.
+- `0x01`: Structured data, as defined in EIP-712. This will be explained further on.
+- `0x45`: Regular signed messages, like the current behaviour of `personal_sign`.
 
 If we specify an intended validator (e.g., a contract address), the contract can re-calculate the hash with its own address. Submitting the signed message to a different instance of a contract won't work, since it won't be able to verify the signature.
 
@@ -275,9 +275,9 @@ This contract does nothing more than verify signatures and would be quite useles
 
 What makes something like this useful is that a user has a trustless way to give a smart contract certain commands without sending a transaction. The user could, for example, sign a message saying, "Please send 1 Ether from my address to this address." A smart contract can then verify who signed that message, and execute that command, using a standard like EIP-712, and/or EIP-1077. Signature verification in smart contracts can be used in applications like:
 
-* Multisig contracts (e.g., [Gnosis Safe](https://gnosis-safe.io/));
-* Decentralised exchanges;
-* Meta transactions and gas relayers (e.g., [Gas Station Network](https://www.opengsn.org/)).
+- Multisig contracts (e.g., [Gnosis Safe](https://gnosis-safe.io/));
+- Decentralised exchanges;
+- Meta transactions and gas relayers (e.g., [Gas Station Network](https://www.opengsn.org/)).
 
 But what if you are already using a smart contract wallet that you want to sign a message from? We cannot simply access the private key for a contract. [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) proposes a standard that would allow smart contracts to validate the signatures of **other smart contracts**. The specification is very simple:
 
@@ -306,9 +306,9 @@ Signatures are a key part of the blockchain and decentralisation. Not only for s
 
 ## References & Related Articles
 
-* [Ethereum: A Secure Decentralised Genralised Transaction Ledger (Yellowpaper)](https://ethereum.github.io/yellowpaper/paper.pdf)
-* [EIP-155: Simple replay attack protection](https://eips.ethereum.org/EIPS/eip-155)
-* [EIP-191: Signed Data Standard](https://eips.ethereum.org/EIPS/eip-191)
-* [EIP-712: Ethereum typed structured data hashing and signing](https://eips.ethereum.org/EIPS/eip-712)
-* [ERC-1271: Standard Signature Validation Method for Contracts](https://eips.ethereum.org/EIPS/eip-1271)
-* [RFC6979: Deterministic Usage of the Digital Signature Algorithm (DSA) and Elliptic Curve Digital Signature Algorithm (ECDSA)](https://tools.ietf.org/html/rfc6979)
+- [Ethereum: A Secure Decentralised Genralised Transaction Ledger (Yellowpaper)](https://ethereum.github.io/yellowpaper/paper.pdf)
+- [EIP-155: Simple replay attack protection](https://eips.ethereum.org/EIPS/eip-155)
+- [EIP-191: Signed Data Standard](https://eips.ethereum.org/EIPS/eip-191)
+- [EIP-712: Ethereum typed structured data hashing and signing](https://eips.ethereum.org/EIPS/eip-712)
+- [ERC-1271: Standard Signature Validation Method for Contracts](https://eips.ethereum.org/EIPS/eip-1271)
+- [RFC6979: Deterministic Usage of the Digital Signature Algorithm (DSA) and Elliptic Curve Digital Signature Algorithm (ECDSA)](https://tools.ietf.org/html/rfc6979)
