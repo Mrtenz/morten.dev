@@ -3,7 +3,6 @@
  */
 declare module '*.png';
 declare module '*.svg' {
-  import { Hash } from 'crypto';
   import { HTMLAttributes } from 'react';
 
   const value: React.ComponentType<HTMLAttributes<SVGElement>>;
@@ -14,7 +13,6 @@ declare module '*.svg' {
  * Declarations for keccak module.
  */
 declare module 'keccak' {
-
   type Algorithm =
     | 'keccak224'
     | 'keccak256'
