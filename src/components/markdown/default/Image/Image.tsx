@@ -10,6 +10,7 @@ const Figure = styled.figure`
   max-width: 100%;
   box-sizing: content-box;
   margin: 1rem 0;
+  text-align: center;
 `;
 
 const Caption = styled(Text).attrs({ as: 'figcaption', small: true, muted: true })`

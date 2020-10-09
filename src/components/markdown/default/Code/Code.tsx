@@ -8,8 +8,9 @@ const StyledCode = styled.code`
   font-family: ${({ theme }) => theme.monoFontFamily};
   background: ${({ theme }) => theme.codeBackground};
   padding: 1.6em;
-  overflow: auto;
   margin: 3rem 0;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 `;
 
 const Code: FunctionComponent = ({ children, ...rest }) => <StyledCode {...rest}>{children}</StyledCode>;
