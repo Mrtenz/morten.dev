@@ -14,9 +14,10 @@ interface ResponseData<T> {
  * @param {string[]} params
  * @return {Promise<ResponseData<T>>}
  */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const sendJsonRpc = async <T extends string | object>(
   method: string,
-  params: (string | object)[]
+  params: Array<string | Record<string, unknown>>
 ): Promise<ResponseData<T>> => {
   const response = await fetch(JSONRPC_PROVIDER, {
     method: 'POST',

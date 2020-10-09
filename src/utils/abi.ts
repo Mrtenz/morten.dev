@@ -7,14 +7,14 @@ export interface ABIMethod {
   type: 'constructor' | 'event' | 'function';
   stateMutability: string;
   constant?: boolean;
-  inputs: {
+  inputs: Array<{
     name: string;
     type: string;
-  }[];
-  outputs: {
+  }>;
+  outputs: Array<{
     name: string;
     type: string;
-  }[];
+  }>;
 }
 
 /**
@@ -79,11 +79,11 @@ export const decodeData = <T>(method: ABIMethod, data: string): T => {
 
 interface DecodedData {
   method: string;
-  parameters: {
+  parameters: Array<{
     name: string;
     type: string;
     value: string | number;
-  }[];
+  }>;
 }
 
 /**

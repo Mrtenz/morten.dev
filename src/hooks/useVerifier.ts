@@ -44,8 +44,6 @@ export const useVerifier = (): { loading: boolean; verify: VerifyFunction; addre
       const recoveredAddress = decodeData<string>(RECOVER_ADDRESS, result);
 
       setAddress(recoveredAddress);
-    } catch (e) {
-      throw e;
     } finally {
       setLoading(false);
     }

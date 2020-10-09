@@ -16,7 +16,7 @@
     "serve": "gatsby serve",
     "lint": "yarn run lint:types && yarn run lint:source && yarn run lint:format",
     "lint:types": "tsc --noEmit",
-    "lint:source": "tslint --project .",
+    "lint:source": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js,.jsx",
     "lint:format": "prettier --check --ignore-path .gitignore \"**/*.{ts,tsx,js,jsx,json,yml,md}\"",
     "format": "prettier --write --ignore-path .gitignore \"**/*.{ts,tsx,js,jsx,json,yml,md}\"",
     "deploy": "gatsby-plugin-s3 deploy --yes"

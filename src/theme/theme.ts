@@ -12,9 +12,9 @@ const theme: DefaultTheme = {
 
   borderRadius: '0.3rem',
 
-  fontFamily: `'Public Sans', sans-serif`,
-  contentFontFamily: `'Source Serif Pro', serif`,
-  monoFontFamily: `'Source Code Pro', monospace`,
+  fontFamily: '\'Public Sans\', sans-serif',
+  contentFontFamily: '\'Source Serif Pro\', serif',
+  monoFontFamily: '\'Source Code Pro\', monospace',
 
   smallBoxShadow: '0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.5)',
 

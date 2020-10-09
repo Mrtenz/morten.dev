@@ -1,5 +1,5 @@
-import components from './default';
 import Embed from './Embed';
+import components from './default';
 
 export default {
   ...components,

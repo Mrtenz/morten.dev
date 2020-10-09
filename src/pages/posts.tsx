@@ -9,7 +9,7 @@ import Section from '../components/Section';
 interface Props {
   data: {
     allMdx: {
-      edges: {
+      edges: Array<{
         node: {
           frontmatter: {
             title: string;
@@ -20,7 +20,7 @@ interface Props {
           excerpt: string;
           timeToRead: number;
         };
-      }[];
+      }>;
     };
   };
 }
