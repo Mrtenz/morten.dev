@@ -55,6 +55,9 @@ const config: GatsbyConfig = {
               target: '_blank',
               rel: 'noopener noreferrer'
             }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files'
           }
         ],
         plugins: ['gatsby-remark-images']
