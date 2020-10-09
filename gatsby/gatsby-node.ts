@@ -1,17 +1,17 @@
-import { GatsbyNode } from 'gatsby';
 import { resolve } from 'path';
+import { GatsbyNode } from 'gatsby';
 
 const BLOG_POST_TEMPLATE = resolve(__dirname, '../src/templates/post.tsx');
 
 interface AllMdxQueryData {
   allMdx: {
-    edges: {
+    edges: Array<{
       node: {
         frontmatter: {
           slug: string;
         };
       };
-    }[];
+    }>;
   };
 }
 
