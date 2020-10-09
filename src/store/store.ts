@@ -9,11 +9,20 @@ export interface ApplicationState {
 export type ApplicationDispatch = ReturnType<typeof createStore>['dispatch'];
 
 export const createStore = (preloadedState?: ApplicationState): EnhancedStore<ApplicationState> => {
-  return configureStore({
+  const store = configureStore({
     reducer,
     middleware: getDefaultMiddleware(),
     preloadedState
   });
+
+  store.subscribe(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const state = store.getState();
+      window.localStorage.setItem('redux', JSON.stringify(state));
+    }
+  });
+
+  return store;
 };
 
 // Default export for `gatsby-plugin-react-redux`
