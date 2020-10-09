@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { setTheme } from '../../store/theme';
 import { Theme } from '../../theme';
+import { useDispatch, useSelector } from '../../utils/hooks';
 import Icon from '../Icon';
-import { ThemeContext } from './ThemeContext';
 
 const ThemeSwitchContainer = styled.div`
   position: fixed;
@@ -13,14 +14,15 @@ const ThemeSwitchContainer = styled.div`
 `;
 
 const ThemeSwitch: FunctionComponent = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     if (theme === Theme.DARK) {
-      return setTheme(Theme.LIGHT);
+      return dispatch(setTheme(Theme.LIGHT));
     }
 
-    setTheme(Theme.DARK);
+    return dispatch(setTheme(Theme.DARK));
   };
 
   return (

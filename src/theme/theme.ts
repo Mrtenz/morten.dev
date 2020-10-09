@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 export enum Theme {
   LIGHT = 'LIGHT',
-  DARK = 'DARK"'
+  DARK = 'DARK'
 }
 
 const light: DefaultTheme = {

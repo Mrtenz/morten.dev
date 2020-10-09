@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Navigation from '../Navigation';
+import Providers from '../Providers';
 import ThemeSwitch from '../ThemeSwitch';
 
 const GlobalStyle = createGlobalStyle`
@@ -25,12 +26,14 @@ const LayoutWrapper = styled.div`
 `;
 
 const Layout: FunctionComponent = ({ children }) => (
-  <LayoutWrapper>
-    <GlobalStyle />
-    <Navigation />
-    <ThemeSwitch />
-    {children}
-  </LayoutWrapper>
+  <Providers>
+    <LayoutWrapper>
+      <GlobalStyle />
+      <Navigation />
+      <ThemeSwitch />
+      {children}
+    </LayoutWrapper>
+  </Providers>
 );
 
 export default Layout;

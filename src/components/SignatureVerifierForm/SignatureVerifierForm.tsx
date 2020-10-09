@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
-import { useVerifier } from '../../hooks/useVerifier';
 import { deserialise, ECDSASignature } from '../../utils/ecdsa';
+import { useVerifier } from '../../utils/hooks/useVerifier';
 import Button from '../Button';
 import Input from '../Input';
 import Text from '../Text';

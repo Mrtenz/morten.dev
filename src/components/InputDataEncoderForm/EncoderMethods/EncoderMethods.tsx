@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useContractMethods } from '../../../hooks';
 import { ABIMethod } from '../../../utils/abi';
+import { useContractMethods } from '../../../utils/hooks';
 import Heading from '../../Heading';
 import Select from '../../Select';
 import Text from '../../Text';

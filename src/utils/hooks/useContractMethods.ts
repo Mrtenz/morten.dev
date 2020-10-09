@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ABIMethod, getCallableMethods } from '../utils/abi';
+import { ABIMethod, getCallableMethods } from '../abi';
 
 /**
  * Get all callable contract methods for a raw ABI string.

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { useContractAbi, useTransactionData } from '../../hooks';
+import { useContractAbi, useTransactionData } from '../../utils/hooks';
 import Input from '../Input';
 import DecodedInputData from './DecodedInputData';
 
