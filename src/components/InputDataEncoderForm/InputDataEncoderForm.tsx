@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
-import { useContractAbi } from '../../hooks';
 import { ABIMethod } from '../../utils/abi';
+import { useContractAbi } from '../../utils/hooks';
 import Input from '../Input';
 import EncodedInputData from './EncodedInputData';
 import EncoderMethods from './EncoderMethods';

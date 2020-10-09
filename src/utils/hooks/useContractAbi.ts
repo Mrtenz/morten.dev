@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { isValidAddress } from '../utils/address';
-import { fetchContractAbi } from '../utils/etherscan';
+import { isValidAddress } from '../address';
+import { fetchContractAbi } from '../etherscan';
 
 /**
  * Fetch contract ABI from Etherscan's API.

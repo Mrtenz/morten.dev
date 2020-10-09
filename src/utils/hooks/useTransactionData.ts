@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { isValidTransactionHash } from '../utils/address';
-import { fetchTransactionData, TransactionResponse } from '../utils/ethereum';
+import { isValidTransactionHash } from '../address';
+import { fetchTransactionData, TransactionResponse } from '../ethereum';
 
 /**
  * Get transaction data from the blockchain, with a transaction hash.

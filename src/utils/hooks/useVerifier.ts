@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { decodeData, encodeInputData, keccak256 } from '../utils/abi';
-import { ECDSASignature } from '../utils/ecdsa';
-import { call } from '../utils/ethereum';
+import { decodeData, encodeInputData, keccak256 } from '../abi';
+import { ECDSASignature } from '../ecdsa';
+import { call } from '../ethereum';
 
 const CONTRACT_ADDRESS = '0xcf3c059a249183a07a9dd9d4cb88e1a93e7311e0';
 const RECOVER_ADDRESS = {
