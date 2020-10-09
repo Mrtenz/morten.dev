@@ -21,6 +21,14 @@ const config: GatsbyConfig = {
       }
     },
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-layout',
       options: {
         component: require.resolve('../src/components/Layout/Layout.tsx')

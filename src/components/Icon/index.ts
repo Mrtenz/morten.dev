@@ -1,1 +1,1 @@
-export { default, icons, StyledIcon } from './Icon';
+export { default, icons } from './Icon';

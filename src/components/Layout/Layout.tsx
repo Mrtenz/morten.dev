@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Navigation from '../Navigation';
+import ThemeSwitch from '../ThemeSwitch';
 
 const GlobalStyle = createGlobalStyle`
   html, body, #___gatsby {
@@ -27,6 +28,7 @@ const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
     <GlobalStyle />
     <Navigation />
+    <ThemeSwitch />
     {children}
   </LayoutWrapper>
 );
