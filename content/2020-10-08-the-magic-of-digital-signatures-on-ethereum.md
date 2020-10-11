@@ -85,9 +85,11 @@ So far we've mostly talked about signatures in the context of messages. Transact
 
 Signed transactions are [RLP](https://eth.wiki/en/fundamentals/rlp) encoded, and consist of all transaction parameters (nonce, gas price, gas limit, to, value, data) and the signature (v, r, s). A signed transaction looks like this:
 
-```
+<pre>
+<code wrap={true}>
 0xf86c0a8502540be400825208944bbeeb066ed09b7aed07bf39eee0460dfa261520880de0b6b3a7640000801ca0f3ae52c1ef3300f44df0bcfd1341c232ed6134672b16e35699ae3f5fe2493379a023d23d2955a239dd6f61c4e8b2678d174356ff424eac53da53e17706c43ef871
-```
+</code>
+</pre>
 
 If we enter this on [MyCrypto's broadcast signed transaction page](https://mycrypto.com/pushTx), we will see all the transaction parameters:
 
@@ -218,9 +220,11 @@ function hashTransaction(Transaction calldata transaction) public view returns (
 
 The data for the transaction above looks like this, for example:
 
-```
+<pre>
+<code wrap={true}>
 0x1901fb502c9363785a728bf2d9a150ff634e6c6eda4a88196262e490b191d5067cceee82daae26b730caeb3f79c5c62cd998926589b40140538f456915af319370899015d824eda913cd3bfc2991811b955516332ff2ef14fe0da1b3bc4c0f424929
-```
+</code>
+</pre>
 
 It consists of the EIP-191 bytes, hashed domain separator, hashed `Transaction` type, and the `Transaction` input. This data is hashed again, and signed. We can then use `ecrecover` in order to verify the signature in a smart contract:
 
