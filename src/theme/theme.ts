@@ -29,18 +29,18 @@ const light: DefaultTheme = {
   },
 
   syntax: {
-    builtin: '#77b3e4',
-    className: 'white',
-    comment: '#8890a0',
-    function: '#c0c0c0',
-    keyword: '#77b3e4',
-    number: 'white',
+    builtin: '#357db8',
+    className: '#212121',
+    comment: '#565e6c',
+    function: '#626262',
+    keyword: '#357db8',
+    number: '#212121',
     operator: '#cd9887',
-    property: '#77b3e4',
+    property: '#357db8',
     punctuation: '#8890a0',
-    string: '#a2bc80',
-    text: 'white',
-    version: '#c0c0c0'
+    string: '#212121',
+    text: '#212121',
+    version: '#626262'
   }
 };
 
