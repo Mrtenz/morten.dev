@@ -154,34 +154,34 @@ The domain contains information like the name of the application, the version, c
 
 The definitions for the message as seen in the image above, are as follows:
 
-```
+```json
 {
-  types: {
-    EIP712Domain: [
-      { name: 'name', type: 'string' },
-      { name: 'version', type: 'string' },
-      { name: 'chainId', type: 'uint256' },
-      { name: 'verifyingContract', type: 'address' },
-      { name: 'salt', type: 'bytes32' }
+  "types": {
+    "EIP712Domain": [
+      { "name": "name", "type": "string" },
+      { "name": "version", "type": "string" },
+      { "name": "chainId", "type": "uint256" },
+      { "name": "verifyingContract", "type": "address" },
+      { "name": "salt", "type": "bytes32" }
     ],
-    Transaction: [
-      { name: 'to', type: 'address' },
-      { name: 'amount', type: 'uint256' },
-      { name: 'nonce', type: 'uint256' }
+    "Transaction": [
+      { "name": "to", "type": "address" },
+      { "name": "amount", "type": "uint256" },
+      { "name": "nonce", "type": "uint256" }
     ]
   },
-  domain: {
-    name: 'MyCrypto',
-    version: '1.0.0',
-    chainId: 1,
-    verifyingContract: '0x098D8b363933D742476DDd594c4A5a5F1a62326a',
-    salt: '0x76e22a8ee58573472b9d7b73c41ee29160bc2759195434c1bc1201ae4769afd7'
+  "domain": {
+    "name": "MyCrypto",
+    "version": "1.0.0",
+    "chainId": 1,
+    "verifyingContract": "0x098D8b363933D742476DDd594c4A5a5F1a62326a",
+    "salt": "0x76e22a8ee58573472b9d7b73c41ee29160bc2759195434c1bc1201ae4769afd7"
   },
-  primaryType: 'Transaction',
-  message: {
-    to: '0x4bbeEB066eD09B7AEd07bF39EEe0460DFa261520',
-    amount: 1000000,
-    nonce: 0
+  "primaryType": "Transaction",
+  "message": {
+    "to": "0x4bbeEB066eD09B7AEd07bF39EEe0460DFa261520",
+    "amount": 1000000,
+    "nonce": 0
   }
 }
 ```

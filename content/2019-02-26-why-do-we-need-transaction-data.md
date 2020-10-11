@@ -21,7 +21,7 @@ The raw input data for the transaction above is `0xa9059cbb000000000000000000000
 
 If you look at the formatted input data in Etherscan (the default), you will see the same thing:
 
-```text
+```
 Function: transfer(address _to, uint256 _value)
 MethodID: 0xa9059cbb
 [0]: 0000000000000000000000004bbeeb066ed09b7aed07bf39eee0460dfa261520
@@ -66,7 +66,11 @@ As mentioned in the previous section, the input data for arrays and strings work
 
 For example, let’s say we have a function called `myFunction` that takes an address and array of numbers (`myFunction(address,uint256[])`). The function signature for this function is `0x4b294170`. For the address, we’ll use the same address as above. Because our array has 3 items, the length of the array as a hexadecimal is `0x3`. We know that each argument takes exactly 32 bytes of space, and the array is put after all other arguments, so the array starts at 32 + 32 = 64 bytes.
 
-The input data for this transaction will be: `0x4b2941700000000000000000000000004bbeeb066ed09b7aed07bf39eee0460dfa26152000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003`
+The input data for this transaction will be:
+
+```
+0x4b2941700000000000000000000000004bbeeb066ed09b7aed07bf39eee0460dfa26152000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000003
+```
 
 ![Example input data separated into 32-byte long groups](assets/why-do-we-need-transaction-data/4.png)
 

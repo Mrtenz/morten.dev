@@ -29,7 +29,7 @@ For the creation of a mnemonic phrase, we need at least 128 bits of entropy, and
 
 Let’s say we want to create a 12-word-long mnemonic phrase. We start off by generating 128 bits of entropy.
 
-```text
+```
 11111011 00010101 11111100 00011110 01000100 00011011 10110100
 00110001 01000000 01111010 01010111 11101011 10000111 11111010
 00011111 11011110
@@ -37,7 +37,7 @@ Let’s say we want to create a 12-word-long mnemonic phrase. We start off by ge
 
 We then take the first `entropy length / 32 bits` of the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the entropy. So, in our case, we take `128 / 32 = 4` bits, which results in `0100`. This is the _checksum_ for our mnemonic phrase. Then, we append the checksum to the entropy, resulting in 132 bits (128 bits of entropy and 4 bits of the checksum). We split the 132 bits into groups of 11 bits, which looks like this:
 
-```text
+```
 11111011000 10101111111 00000111100 10001000001 10111011010
 2008        1407        60          1089        1498
 
