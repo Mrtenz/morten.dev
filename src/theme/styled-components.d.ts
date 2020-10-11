@@ -23,5 +23,20 @@ declare module 'styled-components' {
       fill: string;
       shadow: string;
     };
+
+    syntax: {
+      builtin: string;
+      className: string;
+      comment: string;
+      function: string;
+      keyword: string;
+      number: string;
+      operator: string;
+      property: string;
+      punctuation: string;
+      string: string;
+      text: string;
+      version: string;
+    };
   }
 }

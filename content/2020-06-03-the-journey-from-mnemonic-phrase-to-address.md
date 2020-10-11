@@ -29,7 +29,7 @@ For the creation of a mnemonic phrase, we need at least 128 bits of entropy, and
 
 Let’s say we want to create a 12-word-long mnemonic phrase. We start off by generating 128 bits of entropy.
 
-```text
+```
 11111011 00010101 11111100 00011110 01000100 00011011 10110100
 00110001 01000000 01111010 01010111 11101011 10000111 11111010
 00011111 11011110
@@ -37,7 +37,7 @@ Let’s say we want to create a 12-word-long mnemonic phrase. We start off by ge
 
 We then take the first `entropy length / 32 bits` of the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the entropy. So, in our case, we take `128 / 32 = 4` bits, which results in `0100`. This is the _checksum_ for our mnemonic phrase. Then, we append the checksum to the entropy, resulting in 132 bits (128 bits of entropy and 4 bits of the checksum). We split the 132 bits into groups of 11 bits, which looks like this:
 
-```text
+```
 11111011000 10101111111 00000111100 10001000001 10111011010
 2008        1407        60          1089        1498
 
@@ -109,9 +109,11 @@ Most important here are the password and the salt. For the password, we use the 
 
 The result is a 512-bit-long seed:
 
-```
+<pre>
+<code wrap={true}>
 0x77cdf1d92225adc0e67b1b4f5a31820251d518b3af074df25a07b751947fd07ebd29a4d0e57b84ea9de03a9123e2a6ea1e3ed739d4c562efec21f1bb0a54a879
-```
+</code>
+</pre>
 
 We use this seed in the next step to generate a BIP-32 master key.
 
@@ -123,9 +125,11 @@ The seed is used to get a master key for a _hierarchical deterministic wallet_ (
 
 An HD wallet starts off with a master key `m`. The master key can be derived from the seed, again using PBKDF2. Instead of using “mnemonic” as salt, we use “Bitcoin seed” (remember: BIP-32 is originally designed for Bitcoin). That means we can derive a master key with `PBKDF2("0x77cd...a879", "Bitcoin seed")`. Again, this results in a 512-bit long key, in this case:
 
-```
+<pre>
+<code wrap={true}>
 0x300b155f751964276c0536230bd9b16fe7a86533c3cbaa7575e8d0431dbedf23f9945bb8b052bd0b0802c10c7c852e7765b69b61ce7233d9fe5a35ab108ca3b6
-```
+</code>
+</pre>
 
 From this key, we can derive many different child keys. Each extended key (including the master key) has 2<sup>31</sup> normal child keys and 2<sup>31</sup> hardened child keys. BIP-32 does not specify a maximum number of levels, so (theoretically) you can derive an infinite number of keys from a single master key.
 
@@ -201,21 +205,27 @@ With the new key and chain code, we can calculate the extended private or public
 
 The extended key can be serialized to a [Base58](https://en.wikipedia.org/wiki/Base58) string, to make it "human-readable". The serialized extended private key for the master key we generated earlier looks like this:
 
-```
+<pre>
+<code wrap={true}>
 xprv9s21ZrQH143K4YUcKrp6cVxQaX59ZFkN6MFdeZjt8CHVYNs55xxQSvZpHWfojWMv6zgjmzopCyWPSFAnV4RU33J4pwCcnhsB4R4mPEnTsMC
-```
+</code>
+</pre>
 
 And the public key:
 
-```
+<pre>
+<code wrap={true}>
 xpub661MyMwAqRbcH2Z5RtM6ydu98YudxiUDTaBESx9VgXpURBCDdWGezitJ8ormADG6CsJPs23fLmaeLp8RJgNvFo6YJkGhpXnHusCkRhGZdqr
-```
+</code>
+</pre>
 
 Let's have a look at the extended private key, to see what it’s made of. As hexadecimal, it looks like this:
 
-```
+<pre>
+<code wrap={true}>
 0x0488ade4000000000000000000f9945bb8b052bd0b0802c10c7c852e7765b69b61ce7233d9fe5a35ab108ca3b600300b155f751964276c0536230bd9b16fe7a86533c3cbaa7575e8d0431dbedf232204691b
-```
+</code>
+</pre>
 
 The extended key is 82 bytes long, and consists of:
 
@@ -229,15 +239,19 @@ The extended key is 82 bytes long, and consists of:
 
 Let's look at another example. If we derive `m/0/0'` from the master key, we get:
 
-```
+<pre>
+<code wrap={true}>
 xprv9wpaeBFtdQRvLmeHJW8am7sYUSJJyup2rJwhCzZQG6KZCB5mqWDpSTamzJZAgtAhJVmaoRSMTeRyzmXXt28tvrZQnnr576LpNcDaSjf4fPn
-```
+</code>
+</pre>
 
 Or as hexadecimal:
 
-```
+<pre>
+<code wrap={true}>
 0x0488ade4028d71ca56800000007c85166433befdd691914b0eecd68d60eb3824bdb386fb34f15abf72a240ddef00387d4046b9eccba86fb9404e23e0345ae7cd513d8c819d00c3e7f11ee2aa4f98ed30f059
-```
+</code>
+</pre>
 
 And here are all the individual fields. Keep in mind that the example child index is hardened, so the index is (0+) 2<sup>31</sup> or `0x80000000`.
 
@@ -249,9 +263,11 @@ This is the last step in the process. For Ethereum, to get the address from a pu
 
 The Keccak256 hash of our public key for `m/0/0'` is:
 
-```
+<pre>
+<code wrap={true}>
 0x4f6a21d5fef845c915263c2fb0008238486b99b112adb319b4fec15dda83437d
-```
+</code>
+</pre>
 
 If we take the last 20 bytes, and apply an [EIP-55](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md) checksum, we finally get our address: `0xB0008238486B99b112aDb319B4fEC15DDa83437d`.
 
