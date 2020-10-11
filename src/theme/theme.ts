@@ -26,6 +26,21 @@ const light: DefaultTheme = {
   logo: {
     fill: '#212121',
     shadow: '#404040'
+  },
+
+  syntax: {
+    builtin: '#77b3e4',
+    className: 'white',
+    comment: '#8890a0',
+    function: '#c0c0c0',
+    keyword: '#77b3e4',
+    number: 'white',
+    operator: '#cd9887',
+    property: '#77b3e4',
+    punctuation: '#8890a0',
+    string: '#a2bc80',
+    text: 'white',
+    version: '#c0c0c0'
   }
 };
 
@@ -50,6 +65,21 @@ const dark: DefaultTheme = {
   logo: {
     fill: 'white',
     shadow: '#dedede'
+  },
+
+  syntax: {
+    builtin: '#77b3e4',
+    className: 'white',
+    comment: '#8890a0',
+    function: '#c0c0c0',
+    keyword: '#77b3e4',
+    number: 'white',
+    operator: '#cd9887',
+    property: '#77b3e4',
+    punctuation: '#8890a0',
+    string: 'white',
+    text: 'white',
+    version: '#c0c0c0'
   }
 };
 
