@@ -22,6 +22,7 @@ const Caption = styled(Text).attrs({ as: 'figcaption', small: true, muted: true 
 const StyledImage = styled.img`
   border-style: none;
   height: auto !important;
+  box-shadow: none !important;
 `;
 
 const Image: FunctionComponent<Props> = ({ alt, children, ...rest }) => (

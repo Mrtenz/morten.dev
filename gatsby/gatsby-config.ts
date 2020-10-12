@@ -60,7 +60,8 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 680,
               linkImagesToOriginal: false,
-              disableBgImage: true
+              disableBgImage: true,
+              backgroundColor: 'transparent'
             }
           },
           {

@@ -9,7 +9,7 @@ Cryptographic signatures are a key part of the blockchain. They are used to prov
 
 _Disclaimer: cryptography is hard. Please don't use anything in this article as primary instruction for the implementation of your own cryptographic functions. Even though extensive research has been done, the info provided here may be inaccurate. This article is for educational purposes only._
 
-![The Magic of Digital Signatures on Ethereum](assets/the-magic-of-digital-signatures-on-ethereum/digital-signature.jpg)
+![The Magic of Digital Signatures on Ethereum](assets/the-magic-of-digital-signatures-on-ethereum/digital-signature.png)
 
 ## What is a cryptographic signature?
 
