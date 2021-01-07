@@ -17,9 +17,9 @@ const Container = styled.div`
 const DecodedTransaction: FunctionComponent<Props> = ({ transaction }) => {
   if (transaction) {
     const { transaction: rawTransaction, ...rest } = transaction;
-    const { v, r, s, from, hash, ...unsignedTransaction } = rawTransaction;
+    const { v, r, s, to, nonce, gasLimit, data, value, chainId } = rawTransaction;
 
-    const signedTransaction = serialize(unsignedTransaction, { v, r: r!, s });
+    const signedTransaction = serialize({ to, nonce, gasLimit, data, value, chainId }, { v, r: r!, s });
 
     return (
       <Container>
