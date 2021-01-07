@@ -1,3 +1,4 @@
+import { serialize } from '@ethersproject/transactions';
 import { HumanReadableTransaction } from 'hmet';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
@@ -15,13 +16,28 @@ const Container = styled.div`
 
 const DecodedTransaction: FunctionComponent<Props> = ({ transaction }) => {
   if (transaction) {
-    const { transaction: _, ...rest } = transaction;
+    const { transaction: rawTransaction, ...rest } = transaction;
+    const { v, r, s, from, hash, ...unsignedTransaction } = rawTransaction;
+
+    const signedTransaction = serialize(unsignedTransaction, { v, r: r!, s });
 
     return (
       <Container>
         <Heading as="h2">Decoded transaction</Heading>
         {rest.description && <Text>{rest.description}</Text>}
-        <Input as="textarea" value={JSON.stringify(rest, null, 2)} readonly={true} />
+        <Input
+          as="textarea"
+          value={JSON.stringify(
+            {
+              ...rest,
+              rawTransaction,
+              signedTransaction
+            },
+            null,
+            2
+          )}
+          readonly={true}
+        />
       </Container>
     );
   }
