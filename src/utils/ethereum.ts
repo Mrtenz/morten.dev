@@ -1,4 +1,7 @@
-const JSONRPC_PROVIDER = 'https://mainnet.infura.io/v3/b53ee8e579c444d186a259f7f5e3f6e0';
+import { JsonRpcProvider } from '@ethersproject/providers';
+
+export const JSONRPC_PROVIDER = 'https://mainnet.infura.io/v3/b53ee8e579c444d186a259f7f5e3f6e0';
+export const ETHERS_PROVIDER = new JsonRpcProvider(JSONRPC_PROVIDER);
 
 interface ResponseData<T> {
   jsonrpc: '2.0';

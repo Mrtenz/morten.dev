@@ -22,6 +22,10 @@ const InputDataDecoder: FunctionComponent = () => (
         <Text>A simple tool to decode input data for Ethereum transactions.</Text>
       </Tool>
 
+      <Tool name="Transaction Decoder" url="/tools/transaction-decoder">
+        <Text>A tool to parse transactions in a human-readable way.</Text>
+      </Tool>
+
       <Tool name="Signature Verifier" url="/tools/signature-verifier">
         <Text>A tool to verify Ethereum ECDSA signatures using Solidity.</Text>
       </Tool>

@@ -77,8 +77,10 @@
   },
   "dependencies": {
     "@ethersproject/abi": "^5.0.2",
+    "@ethersproject/providers": "^5.0.17",
     "@reduxjs/toolkit": "^1.4.0",
     "date-fns": "^2.14.0",
+    "hmet": "^0.1.2",
     "keccak": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
