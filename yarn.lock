@@ -10239,10 +10239,10 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hmet@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/hmet/-/hmet-0.1.1.tgz#1951bc2c0bc02002146736436b74468f224f7dde"
-  integrity sha512-VRLN4Fl/nEv8dpJwvtROT7m4GvJ4PxGV+OtMjR+pOmrQipTh3i/40SKBomdLzjYXyOc1rMhykUwkXrUtS6pXjA==
+hmet@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/hmet/-/hmet-0.1.2.tgz#dbf0ccdfc0b10b25662c349f1d65e23a22c2b979"
+  integrity sha512-u5jjqP4x0yc3tulsUK9Sbbo/iKXUc5SAgmmXb5qCsNRPZittFThQTGAk9jdJ59Z8QBRudoC11Ck3Mee7fjkPSQ==
   dependencies:
     "@ethersproject/contracts" "^5.0.8"
     "@ethersproject/providers" "^5.0.17"
