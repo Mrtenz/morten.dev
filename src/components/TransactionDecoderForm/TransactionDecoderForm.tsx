@@ -14,6 +14,8 @@ const TransactionDecoderForm: FunctionComponent = () => {
   useEffect(() => {
     if (transactionHash) {
       setLoading(true);
+
+      // @ts-expect-error Dependency incompatibility
       readTransactionByHash(transactionHash, ETHERS_PROVIDER)
         .then(setTransaction)
         // eslint-disable-next-line no-console
@@ -24,6 +26,8 @@ const TransactionDecoderForm: FunctionComponent = () => {
 
     if (signedTransaction) {
       setLoading(true);
+
+      // @ts-expect-error Dependency incompatibility
       readTransactionBySignature(signedTransaction, ETHERS_PROVIDER)
         .then(setTransaction)
         // eslint-disable-next-line no-console
