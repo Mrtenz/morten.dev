@@ -74,7 +74,7 @@ export const encodeInputData = (method: ABIMethod, data: { [key: string]: string
 export const decodeData = <T>(method: ABIMethod, data: string): T => {
   const types = method.outputs.map((output) => output.type);
 
-  return (defaultAbiCoder.decode(types, data) as unknown) as T;
+  return defaultAbiCoder.decode(types, data) as unknown as T;
 };
 
 interface DecodedData {
