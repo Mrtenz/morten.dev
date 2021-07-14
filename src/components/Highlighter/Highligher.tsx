@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import refractor from 'refractor/core';
+import { refractor } from 'refractor';
+import { RefractorNode } from 'refractor/core';
 import json from 'refractor/lang/json';
 import solidity from 'refractor/lang/solidity';
-import { renderNodes } from './Node/helpers';
+import Node from './Node';
 
 refractor.register(json);
 refractor.register(solidity);
@@ -17,8 +18,12 @@ const Highlighter: FunctionComponent<Props> = ({ language, children }) => {
     throw new Error(`Language ${language} is not registered.`);
   }
 
-  const nodes = refractor.highlight(children, language);
-  return <>{renderNodes(nodes)}</>;
+  const root = refractor.highlight(children, language) as unknown as RefractorNode;
+  return (
+    <>
+      <Node node={root} />
+    </>
+  );
 };
 
 export default Highlighter;

@@ -15,6 +15,17 @@ interface AllMdxQueryData {
   };
 }
 
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        stream: require.resolve('stream-browserify'),
+        util: false
+      }
+    }
+  });
+};
+
 /**
  * This queries for all blog posts using GraphQL, and creates a new page for each of them.
  *

@@ -34,7 +34,7 @@ export const getType = (node: RefractorNode): Type => {
     return 'text';
   }
 
-  if (node.properties.className) {
+  if (node?.properties?.className) {
     return toCamelCase(node.properties.className[1]) as Type;
   }
 
