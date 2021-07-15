@@ -19,7 +19,7 @@ export interface Props {
 const Heading = styled(Text)<Props>`
   margin: 1rem 0 2.5rem 0;
   font-size: ${({ as = 'h1' }) => sizes[as]};
-  line-height: 1 !important;
+  line-height: 1.25 !important;
 `;
 
 export default Heading;
