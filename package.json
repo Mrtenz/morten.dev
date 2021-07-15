@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": "12"
+    "node": ">=12"
   },
   "scripts": {
     "clean": "gatsby clean",
