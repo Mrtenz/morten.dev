@@ -6,12 +6,17 @@ import styled, { css } from 'styled-components';
 interface Props {
   to: string;
   external?: boolean;
+  underline?: boolean;
 }
 
-const linkStyles = css`
+interface LinkProps {
+  underline?: boolean;
+}
+
+const linkStyles = css<LinkProps>`
   color: inherit;
   font-family: ${({ theme }) => theme.fontFamily};
-  text-decoration: none;
+  text-decoration: ${({ underline = false }) => (underline ? 'underline' : 'none')};
 `;
 
 const InternalLink = styled(GLink)`
@@ -22,16 +27,20 @@ const ExternalLink = styled(OutboundLink)`
   ${linkStyles};
 `;
 
-const Link: FunctionComponent<Props> = ({ to, external, children }) => {
+const Link: FunctionComponent<Props> = ({ to, external, underline, children }) => {
   if (external) {
     return (
-      <ExternalLink href={to} rel="noopener noreferrer">
+      <ExternalLink href={to} rel="noopener noreferrer" underline={underline}>
         {children}
       </ExternalLink>
     );
   }
 
-  return <InternalLink to={to}>{children}</InternalLink>;
+  return (
+    <InternalLink to={to} underline={underline}>
+      {children}
+    </InternalLink>
+  );
 };
 
 export default Link;

@@ -18,7 +18,7 @@ const AboutMe: FunctionComponent = () => (
       </Text>
       <Text>
         To see some projects I have worked on, please refer to my{' '}
-        <Link external={true} to="https://github.com/Mrtenz">
+        <Link external={true} to="https://github.com/Mrtenz" underline={true}>
           GitHub
         </Link>{' '}
         profile.
