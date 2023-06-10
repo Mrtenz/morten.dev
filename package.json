@@ -45,7 +45,7 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby": "^3.9.1",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-canonical-urls": "^3.9.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-google-analytics": "^3.9.0",
